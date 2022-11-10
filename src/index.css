@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  html {
+    font-family: Helvetica, system-ui, sans-serif;
+  }
+}
+
+:root {
+  --header-height: 40px;
+}
+
+@media (min-width: 415px) {
+  :root {
+      --header-height: 65px;
+  }
+}
+
