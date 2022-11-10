@@ -19,3 +19,11 @@
   }
 }
 
+@layer components {
+  .letter {
+    @apply text-[2rem] leading-[2rem] uppercase font-bold p-4
+    w-full max-w-[62px] h-[62px] border-2 text-[32px]
+    border-[rgb(58,58,60)] flex items-center justify-center
+    text-white;
+  }
+}

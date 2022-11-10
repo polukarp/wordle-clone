@@ -6,8 +6,8 @@ import Navbar from './components/Navbar';
 import useKey from './hooks/useKey';
 
 function App() {
-  useKey();
   const gameOver = useSelector((state: any) => state.matrix.gameOver);
+  useKey();
 
   return (
     <div className="App bg-bg-main h-screen relative overflow-hidden">
@@ -20,7 +20,6 @@ function App() {
           h-[calc(100%-40px)] max-w-[500px] md:h-[calc(100%-65px)]">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
-          {/* <GameOver /> */}
         </div>
       </div>
     </div>

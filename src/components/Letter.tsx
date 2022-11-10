@@ -20,6 +20,7 @@ const Letter = ({ letter, index, row }: LetterProps) => {
   const grey = { backgroundColor: 'rgb(58, 58, 60)', border: 'none' };
 
   const targetWord = useSelector((state: any) => state.matrix.targetWord);
+  const currentFlipIndex = useSelector((state: any) => state.matrix.currentFlipIndex);
   const currentRowIndex = useSelector((state: any) => state.matrix.currentRowIndex);
   const correct = targetWord[index] === letter;
   const almost = !correct && letter !== '' && targetWord.includes(letter);
@@ -37,33 +38,17 @@ const Letter = ({ letter, index, row }: LetterProps) => {
   }, [currentRowIndex]);
 
   const isShaking = useSelector((state: any) => state.matrix.isShaking);
-  const isFlipping = useSelector((state: any) => state.matrix.isFlipping);
-  const flipIndex = useSelector((state: any) => state.matrix.currentFlipIndex);
-  const currentAnimationRow = useSelector((state: any) => state.matrix.currentAnimationRow);
-  const [isLetterFlipping, setIsLetterFlipping] = useState(false);
 
   return (
     <div
-      style={currentRowIndex > row && isLetterFlipping ? letterState : {}}
+      style={currentRowIndex > row ? letterState : {}}
       onAnimationEnd={() => {
         dispatch(turnShakeOff());
         dispatch(setFlipIndex());
       }}
-      onAnimationStart={() => {
-        setIsLetterFlipping(true);
-        console.log(currentAnimationRow, currentRowIndex, row);
-      }}
-      className={`text-[2rem] leading-[2rem] uppercase font-bold p-4
-      w-full max-w-[62px] h-[62px] border-2 text-[32px]
-      border-[rgb(58,58,60)] flex items-center justify-center
-      text-white
+      className={`letter
       ${isShaking && row === currentRowIndex ? 'animate-shaking-letters' : ''}
-      ${
-        currentRowIndex > row && flipIndex === index && currentAnimationRow === currentRowIndex
-          ? 'animate-flipping-letters'
-          : ''
-      }
-      `}>
+`}>
       {letter}
     </div>
   );

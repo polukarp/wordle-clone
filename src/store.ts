@@ -75,14 +75,9 @@ const matrixSlice = createSlice({
         state.currWord.length > -1 &&
         state.currentLetterIndex >= 0
       ) {
-        console.log(state.currWord.length, state.currWord);
         state.matrix[state.currentRowIndex][state.currentLetterIndex] = '';
         state.currentLetterIndex -= 1;
         state.currWord = state.currWord.slice(0, -1);
-        // if (state.currentLetterIndex > 0) {
-        //   state.currentLetterIndex -= 1;
-        //   state.matrix[state.currentRowIndex][state.currentLetterIndex] = '';
-        // }
         console.log(state.currWord.length, state.currWord);
       } else {
         if (action.payload.length === 1 && state.currWord.length < 5) {

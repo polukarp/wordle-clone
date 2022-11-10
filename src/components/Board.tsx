@@ -11,6 +11,7 @@ const Board = () => {
     justify-center overflow-hidden flex-grow">
       <div
         className={`grid grid-rows-6 grid-cols-1 p-[10px] flex-grow-1
+        flex-shrink-1
           w-[350px] h-[420px] gap-[5px]`}>
         {board.map((row: RowProps, i) => (
           <Row key={i} row={row} rowIndex={i} />

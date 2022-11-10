@@ -6,23 +6,21 @@ const GameOver = () => {
   const currAttempt = useSelector((state: any) => state.matrix.currentRowIndex);
 
   return (
-    <div
-      className="modal-overlay fixed top-0 left-0 w-full
-    h-full bg-black opacity-60 flex items-center justify-center">
-      <div className="modal-no-padding p-0 flex justify-center items-center">
-        <div
-          className="modal-content relative border rounded-lg
-        border-[#1a1a1b] w-[90%] max-h-full overflow-y-auto
-        max-w-[500px] box-border bg-[#121213] text-white">
-          <button>EXIT</button>
-          <div>
-            <div className="game-stats">
-              <h1>STATISTICS</h1>
-              <div className="statictics"></div>
-              <h1>GUESS DISTRIBUTION</h1>
-            </div>
-          </div>
-        </div>
+    <div className="absolute top-0 left-0 w-screen h-screen grid place-items-center text-center">
+      <div
+        className="absolute z-10 w-1/3 h-3/4 bg-black rounded-md
+      opacity-90 text-white p-10">
+        <h2 className=" font-bold text-4xl mb-4">Game Over!</h2>
+        <p className="text-lg">
+          {gameOver.guessedWord
+            ? `You guessed correct in ${currAttempt} attempts`
+            : 'You guessed wrong'}
+        </p>
+        <p className="text-xl">
+          Correct word is: <span className="underline hover:text-green-400">{targetWord}</span>
+        </p>
+
+        <span className="bg-yellow-500">TODO: Statistics</span>
       </div>
     </div>
   );

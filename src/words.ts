@@ -2317,7 +2317,6 @@ export const targetWords = [
   'shave',
 ];
 export const dictionary = [
-  'nigga',
   'aahed',
   'aalii',
   'aargh',
